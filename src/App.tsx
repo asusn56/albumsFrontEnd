@@ -9,6 +9,8 @@ import RegisterPage from "./pages/RegisterPage";
 import { CartProvider } from "./pages/CartPage/CartContextProvider";
 
 import CartPage from './pages/CartPage/CartPage';
+import Navigation from "./components/Navigation";
+import ProfilePage from "./pages/ProfilePage";
 
 
 function App() {
@@ -17,8 +19,9 @@ function App() {
     <AlbumsContextProvider>
       <CartProvider>
     <BrowserRouter>
+    <Navigation/>
     <Routes>
-    <Route path='cart2' element={<CartPage />} />
+    <Route path="/profile" element={<ProfilePage/>} />
     <Route path='cart' element={<CartPage />} />
     <Route path="/" element={<AlbumsPage />} />
     <Route path='albums'>
@@ -28,6 +31,8 @@ function App() {
       </Route>
       <Route path="/login" element={<LoginPage/>} />
       <Route path="/register" element={<RegisterPage/>} />
+      
+      
      </Routes>
     </BrowserRouter>
     </CartProvider>
