@@ -1,0 +1,23 @@
+.format-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+  
+    strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+  
+    button {
+      margin-top: 6px;
+      padding: 4px 8px;
+      cursor: pointer;
+      
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+    }
+  }
+  
