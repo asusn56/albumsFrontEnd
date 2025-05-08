@@ -1,5 +1,5 @@
 import React from "react"
-import { jwtDecode } from "jwt-decode"
+import {jwtDecode} from "jwt-decode"
 import { createContext, useContext, useEffect, useState } from "react"
 import { User } from "./types/UserType";
 
@@ -66,6 +66,12 @@ export const AuthProvider:React.FC<AuthProviderProps> = ({ children }) => {
             }
         })
     }
+    // const updateUser = (newUser: Partial<User>) => {
+    //     setUser(prevState => ({
+    //       ...prevState, 
+    //       ...newUser
+    //     }));
+    //   };
 
     return (
         <AuthContext.Provider value={{ user, loading, loginUser, logoutUser, updateUser }}>

@@ -10,9 +10,12 @@ import { AlbumFormat } from "../types/AlbumFormatType";
 import ReviewItem from "../components/reviewsComponent";
 import FormatItem from "../components/formatComponent";
 import AlbumTypeItem from "../components/AlbumTypeComponent";
+import ReviewForm from "../components/ReviewFormComponent";
+import { useAuth } from "../AuthContext";
 const SingleAlbumPage: React.FC = () => {
     const { id } = useParams();
     const {loading, getAlbum  } = useAlbums();
+    const { user } = useAuth()
   
     const [reviews, setReviews] = useState<Review[]>([]);
     const [reviewLoading, setReviewLoading] = useState(true);
@@ -108,9 +111,12 @@ return (
 
       </div>
       </div>
+      {user && (
+      <ReviewForm album={album} />
+    )}
     </>
 );
-
+      
 }
 
 

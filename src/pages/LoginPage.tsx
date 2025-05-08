@@ -15,23 +15,34 @@ const LoginPage = () => {
   const userEmailHandler = event => setEmail(event.target.value)
   const userPasswordHandler = event => setPassword(event.target.value)
 
-  const loginHandler = async event => {
-      event.preventDefault()
+  // const loginHandler = async event => {
+  //     event.preventDefault()
 
-      try {
-        const loginInfo = { email, password }
-        const res = await axios.post('http://localhost:5000/api/users/login', loginInfo)
-        const { token } = res.data
+  //     try {
+  //       const loginInfo = { email, password }
+  //       const res = await axios.post('http://localhost:5000/api/users/login', loginInfo)
+  //       const { token } = res.data
 
-        if (token) {
-          loginUser(token)
+  //       if (token) {
+  //         loginUser(token)
        
-          navigate('/')
-        }
-      } catch (error) {
-        console.log('Failed to login', error)
-      }
-  }
+  //         navigate('/')
+  //       }
+  //     } catch (error) {
+  //       console.log('Failed to login', error)
+  //     }
+  // }
+
+  const loginHandler = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post('http://localhost:5000/api/users/login',{ email, password })
+      loginUser(data.token);     // ← store & decode
+      navigate("/profile");      // or wherever
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div>

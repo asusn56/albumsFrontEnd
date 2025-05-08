@@ -1,10 +1,11 @@
 import { Album } from './AlbumType';
 import { User } from './UserType';
+import { Types } from 'mongoose'
 export interface CreateReview {
 
    
     album: Album;
-    user: User;
+    // user: User;
     rating?: number;
     comment: string;
    
